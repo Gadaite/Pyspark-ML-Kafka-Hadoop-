@@ -40,7 +40,7 @@ df = pipelineModel.transform(data)
 selectedcols = ["label", "features"] + data.columns
 df = df.select(selectedcols)
 outdf = df.toPandas()
-outdf
+print(outdf)
 #%%
 df
 #%%
