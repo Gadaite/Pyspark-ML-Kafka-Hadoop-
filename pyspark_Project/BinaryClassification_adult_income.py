@@ -1,14 +1,16 @@
 #%%
 from pyspark.sql import SparkSession
-spark = SparkSession.builder.config('spark.driver.host','192.168.1.4')\
+spark = SparkSession.builder.config('spark.driver.host','192.168.1.10')\
     .config('spark.ui.showConsoleProgress','false')\
     .appName('BinaryClassification').master('local[*]').getOrCreate()
 #%%
-data = spark.read.csv("/mnt/e/win_ubuntu/Code/DataSet/MLdataset/adult.csv",header=True,inferSchema=True)
+data = spark.read.csv("hdfs://192.168.1.10:9000/HadoopFileS/DataSet/MLdataset/adult.csv",header=True,inferSchema=True)
 #%%
 data.printSchema()
 #%%
 data.count()
+#%%
+data.show()
 #%%
 len(data.columns)
 #%%
@@ -47,3 +49,7 @@ df
 train, test = df.randomSplit([0.7, 0.3], seed=100)
 print(train.count())
 print(test.count())
+
+
+import time
+time.sleep(1000000000)
