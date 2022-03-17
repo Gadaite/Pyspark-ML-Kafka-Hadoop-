@@ -1,8 +1,7 @@
 #%%
 from pyspark.sql import SparkSession
 from pyspark.ml.feature import IDF, HashingTF, Tokenizer
-from pyspark.ml.linalg import DenseVector
-spark = SparkSession.builder.config("spark.driver.host","192.168.1.4")\
+spark = SparkSession.builder.config("spark.driver.host","192.168.1.10")\
     .config("spark.ui.showConsoleProgress","false")\
     .appName("IDF").master("local[*]").getOrCreate()
 #%%
