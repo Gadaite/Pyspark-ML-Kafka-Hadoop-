@@ -1,6 +1,7 @@
 #%%
 from pyspark.sql import SparkSession
-spark = SparkSession.builder.appName("DecisionTreeClassifier").master("local[*]").getOrCreate()
+spark = SparkSession.builder.config('spark.driver.host','192.168.1.10').\
+    appName("DecisionTreeClassifier").master("local[*]").getOrCreate()
 from pyspark.ml.linalg import Vectors
 from pyspark.ml.feature import StringIndexer
 df = spark.createDataFrame([
@@ -12,3 +13,7 @@ from pyspark.ml.classification import DecisionTreeClassifier
 DecisionTreeClassifier(featuresCol="")
 #%%
 spark.stop()
+df.printSchema()
+
+import time
+time.sleep(2000000)

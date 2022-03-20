@@ -7,3 +7,6 @@ for i in b:
     a.remove(i)
 print(a)
 print(id(a))
+
+
+win3 = "hello"

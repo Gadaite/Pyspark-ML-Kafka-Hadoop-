@@ -50,6 +50,10 @@ train, test = df.randomSplit([0.7, 0.3], seed=100)
 print(train.count())
 print(test.count())
 
-
+#
 import time
-time.sleep(1000000000)
+time.sleep(1000)
+
+
+
+

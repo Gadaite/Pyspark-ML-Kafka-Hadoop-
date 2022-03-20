@@ -2,11 +2,12 @@
 from pyspark.sql import SparkSession
 from pyspark.ml.feature import VectorAssembler
 from pyspark.ml.clustering import KMeans
-spark = SparkSession.builder.config("spark.driver.host","192.168.1.4")\
+spark = SparkSession.builder.config("spark.driver.host","192.168.1.10")\
     .config("spark.ui.showConsoleProgress","false")\
     .appName("seed").master("local[*]").getOrCreate()
-#%% 
-data = spark.read.csv("/mnt/e/win_ubuntu/Code/DataSet/MLdataset/seeds_dataset.csv",header=True,inferSchema=True)
+#%%
+sc = spark.sparkContext
+data = spark.createDataFrame(sc.textFile("hdfs://192.168.1.10:9000/HadoopFileS/DataSet/MLdatasetseeds_dataset.csv"))
 data.show(3)
 data.printSchema()
 #%%
