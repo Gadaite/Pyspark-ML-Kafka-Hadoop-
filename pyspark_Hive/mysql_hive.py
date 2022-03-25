@@ -25,7 +25,7 @@ spark.sql("""
     row format delimited fields terminated by ','
 """)
 spark.sql("""
-    insert into table RedditNews select * from mysqldf
+    insert overwrite table RedditNews select * from mysqldf
 """)
 t2 = datetime.datetime.now()
 spark.sql("show tables").show()
