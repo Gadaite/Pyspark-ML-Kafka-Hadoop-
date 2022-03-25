@@ -8,11 +8,11 @@
 #%%
 from pyspark.sql import SparkSession
 from pyspark.ml.regression import LinearRegression
-spark = SparkSession.builder.config("spark.driver.host","192.168.1.4")\
+spark = SparkSession.builder.config("spark.driver.host","192.168.1.10")\
     .config("spark.ui.showConsoleProgress","false")\
     .appName("CruiseLinear").master("local[*]").getOrCreate()
 #%%
-data = spark.read.csv("/mnt/e/win_ubuntu/Code/DataSet/MLdataset/cruise_ship_info.csv",header=True,inferSchema=True)
+data = spark.read.csv("hdfs://192.168.1.10:9000/HadoopFileS/DataSet/MLdataset/cruise_ship_info.csv",header=True,inferSchema=True)
 data.printSchema()
 #%%
 data.show(3)
@@ -61,7 +61,7 @@ res_test.meanSquaredError
 #%%
 res_test.meanAbsoluteError
 #%%
-oridata = spark.read.csv("/mnt/e/win_ubuntu/Code/DataSet/MLdataset/cruise_ship_info.csv",header=True,inferSchema=True)
+oridata = spark.read.csv("hdfs://192.168.1.10:9000/HadoopFileS/DataSet/MLdataset/cruise_ship_info.csv",header=True,inferSchema=True)
 #%%
 from pyspark.sql.functions import corr
 oridata.select(corr('crew', 'passengers')).show()
@@ -70,3 +70,6 @@ oridata.select(corr('crew', 'cabins')).show()
 
 #%%
 spark.createDataFrame(oridata.describe().toPandas().transpose().reset_index()).show()
+
+import time
+time.sleep(100)

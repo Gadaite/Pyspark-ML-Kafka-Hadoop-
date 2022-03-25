@@ -2,7 +2,7 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.context import SQLContext
 from pyspark.ml.feature import StringIndexer,VectorAssembler,VectorIndexer
-spark = SparkSession.builder.config("spark.driver.host","192.168.1.4")\
+spark = SparkSession.builder.config("spark.driver.host","192.168.1.10")\
     .config("spark.ui.showConsoleProgress","false")\
     .appName("app").master("local[*]").getOrCreate()
 # %%

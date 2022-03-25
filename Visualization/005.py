@@ -15,3 +15,6 @@ print(objc)
 B.p()           ## 这里为什么可以不生成一个对象就能调用这个方法嘛？
                 ## 为什么这个类没有使用 __init__ 进行构造嘛？
 print(C)
+import datetime
+
+print(datetime.datetime.now())

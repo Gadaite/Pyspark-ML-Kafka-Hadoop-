@@ -12,6 +12,7 @@ df = spark.read.csv("hdfs://192.168.1.10:9000/HadoopFileS/DataSet/MLdataset/Coll
 df = df.withColumnRenamed(df.columns[0],"College")
 df.show(3)
 df.printSchema()
+print(df.count())
 
 # import time
 # time.sleep(10000000)
