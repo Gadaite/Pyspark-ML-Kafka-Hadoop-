@@ -11,6 +11,8 @@ rdd = sc.textFile("hdfs://192.168.1.10:9000/HadoopFileS/DataSet/MLdataset/Colleg
 df = spark.read.csv("hdfs://192.168.1.10:9000/HadoopFileS/DataSet/MLdataset/College.csv",inferSchema=True,header=True)
 df = df.withColumnRenamed(df.columns[0],"College")
 df.show(3)
+
+spark.cacheTable()
 df.printSchema()
 print(df.count())
 
