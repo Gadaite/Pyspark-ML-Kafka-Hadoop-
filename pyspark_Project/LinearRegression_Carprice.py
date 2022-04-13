@@ -21,7 +21,7 @@ data = data.withColumn("trans_price",fudf("price"))
 data.head(1)
 #%%
 #%%
-#-------------------------
+#-------------
 zhcol = ["CarName","fueltype","aspiration"\
     ,"doornumber","carbody","drivewheel","enginelocation","enginetype"\
     ,"cylindernumber","fuelsystem"]
