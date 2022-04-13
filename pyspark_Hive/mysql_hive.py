@@ -23,6 +23,7 @@ spark.sql("""
         News String
     )
     row format delimited fields terminated by ','
+    
 """)
 spark.sql("""
     insert overwrite table RedditNews select * from mysqldf

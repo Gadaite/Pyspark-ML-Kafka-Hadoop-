@@ -1,1 +1,2 @@
-from pyhdfs import H
+import os
+os.system('spark-shell')
