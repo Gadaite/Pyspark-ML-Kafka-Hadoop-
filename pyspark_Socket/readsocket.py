@@ -7,6 +7,6 @@ sc = spark.sparkContext
 sc.setLogLevel("ERROR")
 ssc = StreamingContext(sc,10)
 socketdata = ssc.socketTextStream("192.168.1.10",7777)
-socketdata.foreachRDD(lambda x:print(x.collect()))
+socketdata.flatMap(lambda x:x.split(" ")).map(lambda x:(x,1)).reduceByKey(lambda x,y:x+y).foreachRDD(lambda x:print(x.collect()))
 ssc.start()
 ssc.awaitTermination()
