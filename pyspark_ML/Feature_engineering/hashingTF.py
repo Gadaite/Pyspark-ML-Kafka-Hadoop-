@@ -1,6 +1,7 @@
 #%%
 from pyspark.sql import SparkSession
 from pyspark.ml.feature import HashingTF
+from pyspark.mllib.feature import HashingTF
 #%%
 spark = SparkSession.builder.config("spark.driver.host","192.168.1.4")\
     .config("spark.ui.showConsoleProgress","false")\

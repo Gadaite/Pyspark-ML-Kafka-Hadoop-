@@ -12,3 +12,5 @@ spark.sql("""
     select * from SET where key like "%sql%"
 """).show()
 # functions.show()
+import time
+time.sleep(400)
