@@ -7,10 +7,10 @@ sc = spark.sparkContext
 #%%
 jdbcDF = spark.read.format("jdbc")\
     .option("driver","com.mysql.cj.jdbc.Driver")\
-    .option("url","jdbc:mysql://139.155.70.177:3306/Gadaite")\
+    .option("url","jdbc:mysql://192.168.1.10:3306/Gadaite")\
     .option("dbtable","audi")\
     .option("user","root")\
-    .option("password","zzjz123")\
+    .option("password","LYP809834049")\
     .load()
 #%%
 jdbcDF.createOrReplaceTempView("table")

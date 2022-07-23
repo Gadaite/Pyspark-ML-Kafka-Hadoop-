@@ -1,11 +1,4 @@
 #%%
-# from sklearn.datasets import load_breast_cancer
-# data = load_breast_cancer()
-# import pandas as pd
-# print(type(data))
-# df = pd.DataFrame(data.data, columns=data.feature_names)
-# df
-#%%
 from pyspark.sql import SparkSession
 from pyspark.ml.regression import LinearRegression
 spark = SparkSession.builder.config("spark.driver.host","192.168.1.10")\

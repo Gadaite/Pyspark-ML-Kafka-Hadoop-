@@ -65,3 +65,6 @@ print("---------------JPS(Detailed Result)-----------------------")
 os.system("jps -l")
 print("\n\n")
 print("-------启动ElasticSearch,Kibana等请执行StartELKService.py脚本-----------------------")
+
+# 启动presto
+# nohup hive --service metastore >/dev/null 2>&1 &
